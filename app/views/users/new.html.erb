@@ -13,3 +13,5 @@
     <%= f.submit "Sign-up" %>
   <% end %>
 </div>
+
+<div id="errors"><%= render partial: "model_errors", layout: false, locals: { model: @user } %></div>
