@@ -1,15 +1,22 @@
-class UsersController < ApplicationController
+class SessionsController < ApplicationController
+  def destroy
+    reset_session
+    redirect_to :root
+  end
+
   def new
-    @user = User.new
+    @username = nil
   end
 
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      session[:user_id] = @user.id
+    @username = params[:username]
+    user = User.authenticate(@username, params[:password])
+    if user
+      session[:user_id] = user.id
       redirect_to :root
     else
-      render template: 'users/new'   
+      @error = "Invalid email or password."
+      render template: 'sessions/new'   
     end
   end
 end

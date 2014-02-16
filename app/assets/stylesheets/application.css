@@ -100,8 +100,10 @@ form ul{
   margin: 0 auto;
 }
 
-.error{
+.errors{
   color: red;
+  width: 30%;
+  margin: 0 auto;
 }
 
 h3{

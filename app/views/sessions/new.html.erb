@@ -1,0 +1,14 @@
+<h3>Enter your username and password to sign-in.</h3>
+<div class = "form">
+  <%= form_tag("/sign-in", :method => "post") do %>
+    <%= label_tag(:username, "Username") %>
+    <%= text_field_tag(:username) %>
+    <%= label_tag(:password, "Password") %>
+    <%= password_field_tag(:password) %>
+    <%= submit_tag("Sign-in") %>
+  <% end %>
+</div>
+
+<% if @error %>
+    <div class="errors"><%= @error %></div>
+<% end %>
