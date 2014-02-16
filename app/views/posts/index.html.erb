@@ -2,8 +2,8 @@
   <% @posts.each do |post| %>
     <div class="post">
       <h2 class="post_title"><%= post.title %></h2>
-      <h4 class="post_body">Posted: <%= post.create_date_only %></h4>
-      <h4 class="post_body">By: <%= link_to post.user.name, user_path(post.user.posts) %>
+      <h4 class="post_body">Posted: <%= post.create_date_display %></h4>
+      <h4 class="post_body">By: <%= link_to post.user.name, users_posts_path(post) %>
       
       <% @view == "list" ? body = post.body.split("\n").shift(3) : body = post.body.split("\n") %>
       
@@ -18,7 +18,7 @@
 
       <span>Tags:</span>  
       <% post.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag.posts) %>
+        <%= link_to tag.name, tags_posts_path(tag) %>
       <% end %> 
     </div>
   <% end %>

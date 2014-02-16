@@ -1,0 +1,17 @@
+<div class = "form">
+  <% @post.id ? path = update_post_path : path = create_post_path %>
+  <%= form_for @post, url: path do |f| %>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+    <%= f.label :body, "Body" %>
+    <%= f.text_area :body, size: "30x5" %>
+    <%= fields_for @tags do |t| %>
+      <%= t.label :name, "Tags(separate by commas)"%>
+      <%= t.text_field :name %>
+    <% end %>
+    <% @post ? button_text = "Update" : "Submit" %>
+    <%= f.submit button_text %>
+  <% end %>
+</div>
+
+<div id="errors"><%= render partial: "model_errors", layout: false, locals: { model: @post } %></div>

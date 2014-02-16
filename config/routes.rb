@@ -9,10 +9,11 @@ Blog::Application.routes.draw do
   delete '/posts/:post_id', to: 'posts#destroy', as: :delete_post
 
   #Tags
-  get '/tags/:id/posts', to: 'tags#posts', as: :tags_posts
+  get '/tags/:tag_id/posts', to: 'tags#posts', as: :tags_posts
 
   # Users
   get   '/users/new', to: 'users#new', as: :new_user
+  get   '/users/:user_id/posts', to: 'users#posts', as: :users_posts
   post '/users', to: 'users#create', as: :create_user
 
   #Session

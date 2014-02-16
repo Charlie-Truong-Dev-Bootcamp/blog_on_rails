@@ -12,7 +12,8 @@
       <li><%= link_to "Create", new_post_path %></li>
         <% if @posts !=nil && @view == "single" %>
           <% if @posts.first.user_id.to_i == @user.id %>
-            <li><%= link_to "Edit", edit_post_path %></li>
+            <li><%= link_to "Edit", edit_post_path(@posts.first) %></li>
+            <li><%= link_to "Delete", delete_post_path(@posts.first),method: :delete %></li>
           <% end %>
         <% end %>
     <% end %>
