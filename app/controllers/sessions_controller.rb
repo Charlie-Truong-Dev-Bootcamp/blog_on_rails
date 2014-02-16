@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to :root
     else
-      @error = "Invalid email or password."
+      @error = "Invalid username or password."
       render template: 'sessions/new'   
     end
   end

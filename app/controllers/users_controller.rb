@@ -12,4 +12,12 @@ class UsersController < ApplicationController
       render template: 'users/new'   
     end
   end
+
+  def posts
+    @user = current_user
+    author = User.find(params[:user_id])
+    @view = "list"
+    @posts = author.posts.order("created_at DESC")
+    render template: 'posts/index'
+  end
 end
