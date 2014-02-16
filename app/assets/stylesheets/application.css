@@ -1,0 +1,130 @@
+html, body {
+  background-color: #3BB9FF;
+  height: 100%;
+  font-family: sans-serif;
+  color: #444;
+}
+
+.container {
+  margin: 0 auto;
+  width: 720px;
+  background-color: white;
+  min-height: 100%;
+}
+
+#blog_title {
+  line-height: 110%;
+  vertical-align: middle;
+  margin: 0;
+  padding: 10px;
+  font-size: 50px;
+  color: #222;
+  display: inline;
+}
+
+.post{
+  width: 85%;
+  margin: 20px auto;
+}
+
+.post_title{
+  line-height: 110%;
+  margin-top: 35px;
+  color: #222;
+}
+
+.post_body{
+  line-height: 150%;
+  font-family: serif;
+}
+
+#nav{
+  display: inline;
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #435FB8;
+}
+
+#nav ul{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+#nav li{
+  float: left;
+}
+
+#nav li a{
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  width: 75px;
+  padding: 10px;
+  color: #E6EAF8;
+}
+
+#nav li a:visited{
+  color: #E6EAF8; 
+}
+
+
+#nav li a:hover {
+  background-color:  #8DA1DF; 
+}
+
+#nav_right {
+  float: right;
+  display: inline;
+}
+
+#nav_left {
+  float: left;
+  display: inline;
+}
+
+
+
+form label{
+  display: block;
+}
+
+form ul{
+  list-style: none;
+}
+
+.form{
+  width: 40%;
+  margin: 0 auto;
+}
+
+.error{
+  color: red;
+}
+
+h3{
+  text-align: center;
+}
+
+#hello{
+  display: inline;
+  float: right;
+  margin: 5px;
+}
+
+#create_form{
+  display: none;
+  background-color: #D8D8D8;
+  padding-bottom: 5%;
+}
+
+#create_form form ul{
+  padding: 0;
+}
+
+#create_form form{
+  width: 75%;
+  margin: 0 auto;
+}

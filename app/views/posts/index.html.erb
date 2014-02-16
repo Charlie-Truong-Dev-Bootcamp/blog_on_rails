@@ -1,0 +1,25 @@
+<div id="post_list">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h2 class="post_title"><%= post.title %></h2>
+      <h4 class="post_body">Posted: <%= post.create_date_only %></h4>
+      <h4 class="post_body">By: <%= link_to post.user.name, user_path(post.user.posts) %>
+      
+      <% @view == "list" ? body = post.body.split("\n").shift(3) : body = post.body.split("\n") %>
+      
+      <% body.each do |paragraph| %>
+        <p class="post_body"><%= paragraph %></p>
+      <% end %>
+
+      <% if @view == "list" %>
+        <p><%= link_to "Read More", post_path(post) %></p>
+
+      <% end %>
+
+      <span>Tags:</span>  
+      <% post.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.posts) %>
+      <% end %> 
+    </div>
+  <% end %>
+</div>

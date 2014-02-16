@@ -1,0 +1,28 @@
+<h1 id="blog_title">Awesome Blog</h1>
+
+<% if @user %>
+      <h5 id="hello">Hello, <%=@user.name%></h5>
+<% end %>
+
+<div id="nav">
+  <ul id = "nav_left">
+    <li><%= link_to "Home", :root%></li>
+
+    <% if @user %>
+      <li><%= link_to "Create", new_post_path %></li>
+        <% if @posts !=nil && @view == "single" %>
+          <% if @posts.first.user_id.to_i == @user.id %>
+            <li><%= link_to "Edit", edit_post_path %></li>
+          <% end %>
+        <% end %>
+    <% end %>
+  </ul>
+  <ul id="nav_right">
+    <% if @user%>
+      <li><%= link_to "Sign-out", sign_out_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Sign-in", sign_in_path %></li>
+      <li><%= link_to "Sign-up", new_user_path %></li>
+    <% end %>
+  </ul>
+</div>
