@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   before_filter :sign_in, :except => [:index, :show]
 
   def sign_in
-    redirect_to :sign_in
+    if session[:user_id].nil?
+      redirect_to :sign_in
+    end
   end
 
   def index
