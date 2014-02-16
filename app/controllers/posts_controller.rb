@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+  before_filter :sign_in, :except => [:index, :show]
+
+  def sign_in
+    redirect_to :sign_in
+  end
+
   def index
     @user = current_user
     @posts = Post.includes(:user,:tags).order("created_at DESC")
