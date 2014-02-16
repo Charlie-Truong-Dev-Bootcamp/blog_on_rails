@@ -2,6 +2,7 @@ class Tag < ActiveRecord::Base
   attr_accessible :name
   has_many :tag_associations
   has_many :posts, :through => :tag_associations
+  before_destroy :check_for_posts
 
   def self.add_tags(tags)
     tags = tags.split(',').map{|tag| tag.strip.downcase}
@@ -9,7 +10,7 @@ class Tag < ActiveRecord::Base
     where(name: tags)
   end
 
-  def self.find_posts(tag)
-    where(name: tag).first.posts.order("created_at DESC")
+  def check_for_posts
+    posts.count > 0 ? false: true
   end
 end

@@ -15,9 +15,9 @@ class UsersController < ApplicationController
 
   def posts
     @user = current_user
-    author = User.find(params[:user_id])
+    author = User.includes(:posts).find(params[:user_id])
     @view = "list"
-    @posts = author.posts.order("created_at DESC")
+    @posts = author.posts.includes(:user).order("created_at DESC")
     render template: 'posts/index'
   end
 end

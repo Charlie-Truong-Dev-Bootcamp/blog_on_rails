@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @posts = Post.order("created_at DESC")
+    @posts = Post.includes(:user,:tags).order("created_at DESC")
     @view = "list"
   end
 
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def show
     @user = current_user
-    @posts = Post.where(id: params[:post_id])
+    @posts = Post.includes(:user,:tags).where(id: params[:post_id])
     @view = "single"
     render template: 'posts/index'
   end
